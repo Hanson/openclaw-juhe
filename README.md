@@ -313,8 +313,7 @@ A: 在群组配置中设置 `requireMention: true`。
 
 ## 相关项目
 
-- [OpenClaw](https://github.com/openclaw/openclaw) - 多通道聊天机器人框架
-- [clawdbot-feishu](https://github.com/openclaw/clawdbot-feishu) - OpenClaw 飞书插件
+- [claude-client](https://github.com/Hanson/claude-client) - Claude AI 客户端
 
 ## 许可证
 
