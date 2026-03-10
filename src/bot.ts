@@ -181,57 +181,6 @@ export async function handleJuheMessage(params: {
 
   log(`juhe: received message from ${senderName} (${senderId}) in ${ctx.chatType} ${chatId || "DM"}`);
 
-  // 处理特殊命令：获取 ID 信息（无需管理员权限）
-  if (content.trim() === "get-openclaw-juhe-id") {
-    // 获取机器人 ID
-    let botId: string;
-    if (account.type === "wework") {
-      // 企微：使用 account.uin 或第一个联系人
-      botId = account.uin || account.config?.contacts?.[0] || "";
-    } else {
-      // 个微：使用 to_username（机器人自己的微信ID）
-      botId = msgData?.to_username || "";
-    }
-
-    // 构建回复消息
-    const infoLines = [
-      "📋 **OpenClaw Juhe ID 信息**",
-      "",
-      `👤 发送者ID: \`${senderId}\``,
-    ];
-
-    if (isGroupMsg) {
-      infoLines.push(`💬 群ID: \`${chatId}\``);
-    } else {
-      infoLines.push(`💬 私聊 (无群ID)`);
-    }
-
-    infoLines.push(`🤖 机器人ID: \`${botId}\``);
-    infoLines.push("");
-    infoLines.push(`账号类型: ${account.type === "wework" ? "企微" : "个微"}`);
-
-    const replyTarget = isGroupMsg
-      ? (account.type === "wework"
-          ? (chatId.startsWith("R:") ? chatId : `R:${chatId}`)
-          : chatId)
-      : (account.type === "wework"
-          ? (senderId.startsWith("S:") ? senderId : `S:${senderId}`)
-          : senderId);
-
-    try {
-      await sendMessageJuhe({
-        cfg,
-        to: replyTarget,
-        text: infoLines.join("\n"),
-        accountId: account.accountId,
-      });
-      log(`juhe: sent ID info to ${replyTarget}`);
-    } catch (err) {
-      error(`juhe: failed to send ID info: ${String(err)}`);
-    }
-    return;
-  }
-
   // 私聊消息：检查是否为管理员
   if (!isGroupMsg) {
     console.log(`[juhe] bot.ts: account.config=`, JSON.stringify(account.config));
