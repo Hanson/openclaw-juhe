@@ -91,6 +91,64 @@ channels:
 npx clawbot start
 ```
 
+### 4. 安装插件到 OpenClaw
+
+修改代码后，需要将更新同步到 OpenClaw 插件目录。有以下几种方式：
+
+#### 方式 1：手动复制（简单直接）
+
+```bash
+# 复制单个文件
+cp src/bot.ts ~/.openclaw/extensions/juhe/src/bot.ts
+
+# 复制整个 src 目录
+cp -r src/* ~/.openclaw/extensions/juhe/src/
+```
+
+#### 方式 2：软链接（推荐开发时使用）
+
+修改代码后即时生效，无需手动复制：
+
+```bash
+# Windows (需要管理员权限)
+# 先删除原有目录
+rm -rf ~/.openclaw/extensions/juhe
+# 创建软链接
+mklink /D "C:\Users\你的用户名\.openclaw\extensions\juhe" "D:\code\聚合聊天\openclaw-juhe"
+
+# Git Bash / WSL
+ln -s "/d/code/聚合聊天/openclaw-juhe" ~/.openclaw/extensions/juhe
+```
+
+#### 方式 3：修改 openclaw.json 配置
+
+编辑 `~/.openclaw/openclaw.json`，将插件路径指向本地项目：
+
+```json
+{
+  "plugins": {
+    "load": {
+      "paths": [
+        "D:\\code\\聚合聊天\\openclaw-juhe"
+      ]
+    }
+  }
+}
+```
+
+#### 方式 4：创建同步脚本
+
+创建 `sync.sh` 或 `sync.cmd` 脚本：
+
+```bash
+#!/bin/bash
+# sync.sh
+cp -r src/* ~/.openclaw/extensions/juhe/src/
+echo "✅ Files synced. Restart with: npx clawbot restart"
+```
+
+> **推荐**：开发时使用软链接（方式 2），修改即时生效；发布时使用方式 3 配置本地路径测试。
+
 ## 配置指南
 
 ### 回调模式选择
