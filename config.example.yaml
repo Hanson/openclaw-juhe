@@ -1,0 +1,88 @@
+# Juhe OpenClaw Channel Plugin 配置示例
+
+channels:
+  juhe:
+    # 启用插件
+    enabled: true
+
+    # aggregate_chat 后端地址
+    baseUrl: "https://chat-admin.juhebot.com"
+    # 本地开发示例:
+    # baseUrl: "http://localhost:8888"
+
+    # ========== 回调模式选择 ==========
+    # 方式 1: WebSocket 客户端 (推荐，无需公网 IP)
+    # 本地客户端主动连接到服务器接收回调
+    wsUrl: "wss://chat-admin.juhebot.com/ws/juhe"
+    # 或使用 ws:// 用于非加密连接
+    # wsUrl: "ws://8.138.182.93:33789/ws/juhe"
+
+    # 方式 2: HTTP 回调服务器 (需要公网 IP 或 FRP)
+    # 服务器主动回调到本地 HTTP 服务
+    # callbackUrl: "https://your-server.com/callback/juhe"
+    # webhookPort: 3000
+    # webhookPath: "/callback/juhe"
+
+    # App 凭证 (从 aggregate_chat 后台获取)
+    appKey: "appxxxxxxxxxxxx"
+    appSecret: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+    # GUID (机器人实例的 GUID)
+    guid: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+
+    # 允许私聊的用户 ID 列表 (这些用户的私聊消息会被处理)
+    contacts: ["YOUR_WECHAT_ID"]
+
+    # 多账号配置 (可选)
+    accounts:
+      # 第二个账号
+      account2:
+        enabled: false
+        baseUrl: "https://chat-admin.juhebot.com"
+        wsUrl: "wss://chat-admin.juhebot.com/ws/juhe"
+        appKey: "appxxxxxxxxxxxx"
+        appSecret: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        guid: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+        contacts: ["YOUR_WEWORK_UIN"]
+
+# ========== 回调模式说明 ==========
+#
+# WebSocket 模式 (推荐):
+#   - 优点: 无需公网 IP，本地服务可以直接连接
+#   - 配置: 只需设置 wsUrl
+#   - 适用: 本地开发、内网环境
+#
+# HTTP 模式:
+#   - 优点: 兼容性好，标准 HTTP 回调
+#   - 缺点: 需要公网 IP 或使用 FRP 穿透
+#   - 配置: 需要设置 callbackUrl + webhookPort + webhookPath
+#   - 适用: 有公网 IP 的服务器
+#
+# ========== WebSocket 协议说明 ==========
+#
+# 客户端连接后需要发送认证消息:
+# {
+#   "type": "auth",
+#   "app_key": "xxx",
+#   "app_secret": "xxx",
+#   "guid": "xxx"
+# }
+#
+# 服务器响应:
+# {
+#   "type": "auth_success"
+# }
+#
+# 收到回调事件:
+# {
+#   "type": "callback",
+#   "event_id": "xxx",
+#   "event": { ... }
+# }
+#
+# 客户端需要发送确认:
+# {
+#   "type": "ack",
+#   "event_id": "xxx",
+#   "success": true
+# }

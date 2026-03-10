@@ -1,0 +1,39 @@
+{
+  "id": "juhe",
+  "channels": ["juhe"],
+  "skills": ["./skills"],
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "enabled": { "type": "boolean", "title": "启用 Juhe 渠道" },
+      "type": { "type": "string", "enum": ["wework", "wechat"], "title": "类型" },
+      "appKey": { "type": "string", "title": "App Key" },
+      "appSecret": { "type": "string", "title": "App Secret" },
+      "guid": { "type": "string", "title": "机器人 GUID" },
+      "baseUrl": { "type": "string", "format": "uri", "title": "API 基础 URL" },
+      "wsUrl": { "type": "string", "format": "uri", "title": "WebSocket URL" },
+      "accountId": { "type": "string", "description": "从 accounts.json 加载的账号 ID" },
+      "contacts": {
+        "type": "array",
+        "title": "私聊白名单",
+        "items": { "type": "string" }
+      },
+      "rooms": {
+        "type": "array",
+        "title": "群聊配置",
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": { "type": "string", "title": "群 ID" },
+            "requireMention": { "type": "boolean", "title": "需要 @ 机器人" },
+            "scope": { "type": "string", "enum": ["owner", "everyone", "whitelist"], "title": "权限范围" },
+            "whitelist": { "type": "array", "title": "白名单", "items": { "type": "string" } }
+          },
+          "required": ["id"]
+        }
+      }
+    }
+  }
+}

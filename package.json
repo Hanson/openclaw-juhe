@@ -1,0 +1,37 @@
+{
+  "name": "openclaw-juhe",
+  "version": "1.0.0",
+  "description": "OpenClaw channel plugin for aggregate_chat (WeChat/WeWork integration)",
+  "type": "module",
+  "main": "index.ts",
+  "scripts": {
+    "test-ws": "node test-ws.mjs",
+    "type-check": "tsc --noEmit"
+  },
+  "keywords": [
+    "openclaw",
+    "plugin",
+    "wechat",
+    "wework",
+    "aggregate-chat"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hanson/openclaw-juhe"
+  },
+  "homepage": "https://github.com/hanson/openclaw-juhe#readme",
+  "bugs": {
+    "url": "https://github.com/hanson/openclaw-juhe/issues"
+  },
+  "dependencies": {
+    "openclaw": "^2026.3.7",
+    "ws": "^8.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/ws": "^8.0.0",
+    "typescript": "^5.0.0"
+  }
+}
