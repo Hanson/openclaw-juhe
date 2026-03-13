@@ -1,10 +1,10 @@
-# openclaw-juhe
+# openclaw-juhe-channel
 
 <div align="center">
 
 **微信/企微通道插件 - 为 OpenClaw 带来微信和企微集成**
 
-[![GitHub](https://img.shields.io/badge/GitHub-hanson%2Fopenclaw--juhe-blue)](https://github.com/hanson/openclaw-juhe)
+[![GitHub](https://img.shields.io/badge/GitHub-hanson%2Fopenclaw--juhe--channel-blue)](https://github.com/hanson/openclaw-juhe-channel)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue)](https://www.typescriptlang.org/)
 [![Node.js](https://img.shields.io/badge/Node.js-18+-green)](https://nodejs.org/)
@@ -17,7 +17,7 @@
 
 ## 项目简介
 
-openclaw-juhe 是 [OpenClaw](https://github.com/openclaw/openclaw) 的通道插件，通过 **juhebot** 后端服务实现微信和企微的消息收发功能。
+openclaw-juhe-channel 是 [OpenClaw](https://github.com/openclaw/openclaw) 的通道插件，通过 **juhebot** 后端服务实现微信和企微的消息收发功能。
 
 > **付费说明**
 >
@@ -117,7 +117,7 @@ rm -rf ~/.openclaw/extensions/juhe
 mklink /D "C:\Users\你的用户名\.openclaw\extensions\juhe" "D:\code\projects\openclaw-juhe"
 
 # Git Bash / WSL
-ln -s "/d/code/projects/openclaw-juhe" ~/.openclaw/extensions/juhe
+ln -s "/d/code/projects/openclaw-juhe-channel" ~/.openclaw/extensions/juhe
 ```
 
 #### 方式 3：修改 openclaw.json 配置
@@ -129,7 +129,7 @@ ln -s "/d/code/projects/openclaw-juhe" ~/.openclaw/extensions/juhe
   "plugins": {
     "load": {
       "paths": [
-        "D:\\code\\projects\\openclaw-juhe"
+        "D:\\code\\projects\\openclaw-juhe-channel"
       ]
     }
   }
@@ -221,7 +221,7 @@ rooms:
 
 ```
 ┌─────────────┐         WebSocket/HTTP          ┌──────────────────┐
-│   juhebot   │  ──────────────────────────>   │  openclaw-juhe   │
+│   juhebot   │  ──────────────────────────>   │  openclaw-juhe-channel   │
 │   Backend   │  <──────────────────────────    │   (Plugin)       │
 └─────────────┘         Callback Events         └──────────────────┘
                                                            │
@@ -240,7 +240,7 @@ rooms:
 ### 目录结构
 
 ```
-openclaw-juhe/
+openclaw-juhe-channel/
 ├── index.ts              # 插件入口
 ├── src/
 │   ├── channel.ts        # ChannelPlugin 实现

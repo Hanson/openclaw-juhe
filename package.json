@@ -1,5 +1,5 @@
 {
-  "name": "openclaw-juhe",
+  "name": "openclaw-juhe-channel",
   "version": "1.0.0",
   "description": "OpenClaw channel plugin for aggregate_chat (WeChat/WeWork integration)",
   "type": "module",
@@ -19,11 +19,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/hanson/openclaw-juhe"
+    "url": "https://github.com/hanson/openclaw-juhe-channel"
   },
-  "homepage": "https://github.com/hanson/openclaw-juhe#readme",
+  "homepage": "https://github.com/hanson/openclaw-juhe-channel#readme",
   "bugs": {
-    "url": "https://github.com/hanson/openclaw-juhe/issues"
+    "url": "https://github.com/hanson/openclaw-juhe-channel/issues"
   },
   "dependencies": {
     "openclaw": "^2026.3.7",
