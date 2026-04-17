@@ -114,7 +114,7 @@ cp -r src/* ~/.openclaw/extensions/juhe/src/
 # 先删除原有目录
 rm -rf ~/.openclaw/extensions/juhe
 # 创建软链接
-mklink /D "C:\Users\你的用户名\.openclaw\extensions\juhe" "D:\code\projects\openclaw-juhe"
+mklink /D "C:\Users\你的用户名\.openclaw\extensions\juhe" "D:\code\聚合聊天\openclaw-juhe-channel"
 
 # Git Bash / WSL
 ln -s "/d/code/projects/openclaw-juhe-channel" ~/.openclaw/extensions/juhe

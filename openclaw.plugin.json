@@ -1,5 +1,7 @@
 {
-  "id": "juhe",
+  "id": "juhe-channel",
+  "name": "Juhe Channel Plugin",
+  "description": "Channel-only plugin for aggregate_chat backend (WeChat and WeWork integration)",
   "channels": ["juhe"],
   "skills": ["./skills"],
   "configSchema": {

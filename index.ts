@@ -1,5 +1,5 @@
 /**
- * openclaw-juhe - OpenClaw Channel Plugin for aggregate_chat
+ * openclaw-juhe-channel - OpenClaw Channel Plugin for aggregate_chat
  *
  * 主入口文件
  */
